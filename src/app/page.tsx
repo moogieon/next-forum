@@ -1,14 +1,11 @@
-import { MongoClient } from "mongodb";
+import { connectDB } from "@util/database";
 
 export default async function Home() {
-  const client = await MongoClient.connect(
-    "mongodb+srv://cmlee:Leeky731!@coding-apple.f9nta4k.mongodb.net/?retryWrites=true&w=majority",
-    {
-      useNewUrlParser: true,
-    }
-  );
+  const client = await connectDB;
   const db = client.db("forum");
+  let result = await db.collection("post").find().toArray();
 
-  db.collection("post").find;
+  console.log(result);
+
   return <div>hi</div>;
 }
