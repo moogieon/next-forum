@@ -1,5 +1,6 @@
 import { connectDB } from "@util/database";
 import DetailLink from "./DetailLink";
+import Link from "next/link";
 
 export default async function List() {
   const client = await connectDB;
@@ -16,6 +17,7 @@ export default async function List() {
                 <h4>{data.title}</h4>
                 <p>{data.content}</p>
               </DetailLink>
+              <Link href={`/edit/${data._id}`}>✏️</Link>
             </li>
           </>
         ))}
