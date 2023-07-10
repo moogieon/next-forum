@@ -13,15 +13,6 @@ export default async function Edit(props: Props) {
     .collection("post")
     .findOne({ _id: new ObjectId(props.params._id) });
 
-  //   await db.collection("post").updateOne(
-  //     { _id: new ObjectId(props.params._id) },
-  //     {
-  //       $set: {
-  //         title: "",
-  //         content: "",
-  //       },
-  //     }
-  //   );
   return (
     <div className="p-20">
       <h4>수정페이지</h4>
